@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>HackBCA 20XX</title>
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico" />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/styles/materialize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- Shared site-wide CSS  -->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <!-- Page specific CSS -->
+    <link rel="stylesheet" href="/styles/newevent.css" />
+  </head>
+
+  <body>
+    <!-- https://materializecss.com/navbar.html -->
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <img
+            class="hide-on-small-and-down"
+            src="/images/bca-logo-transparent.png"
+          />
+          <a href="/" class="brand-logo">HackBCA 20XX</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul id="desktop-nav" class="right hide-on-med-and-down">
+            <li>
+              <a href="/events.html"
+                ><i class="material-icons left">event</i>Events</a
+              >
+            </li>
+            <li>
+              <a href="/attendees.html"
+                ><i class="material-icons left">people</i>Attendees</a
+              >
+            </li>
+            <li>
+              <a href="/projects.html"
+                ><i class="material-icons left">build</i>Projects</a
+              >
+            </li>
+            <li><a href="/login.html" class="btn">Login / Register</a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul id="mobile-nav" class="sidenav">
+        <li>
+          <a href="/events.html"
+            ><i class="material-icons left">event</i>Events</a
+          >
+        </li>
+        <li>
+          <a href="/attendees.html"
+            ><i class="material-icons left">people</i>Attendees</a
+          >
+        </li>
+        <li>
+          <a href="/projects.html"
+            ><i class="material-icons left">build</i>Projects</a
+          >
+        </li>
+        <li><a href="/login.html" class="btn">Login / Register</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <form id="create_update_project" method="post" action="/project">
+        <!-- action and method depend on C vs U-->
+        <input type="hidden" name="project_id" id="project_id" value="0" />
+        <!-- server sets project_id value-->
+
+        <div class="container">
+          <div class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title">
+                <h1>Create New / Modify Project</h1>
+              </span>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    id="project_name"
+                    class="validate"
+                    data-length="32"
+                    required
+                  />
+                  <label for="project_name">Project Name</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" id="project_team" required />
+                  <label for="project_name">Team Members</label>
+                </div>
+              </div>
+
+              <!-- https://materializecss.com/select.html -->
+              <div class="row">
+                <div class="input-field col s6">
+                  <select id="project_type" name="project_type" required>
+                    <option value="" disabled selected>Select a type</option>
+                    <option value="Web">Web</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Game">Game</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <label for="project_type">Project Type</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <select
+                    id="project_location"
+                    name="project_location"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select a location
+                    </option>
+                    <option value="Gym">Gym</option>
+                    <option value="Auditorium">Auditorium</option>
+                    <option value="Lower Cafe">Lower Cafe</option>
+                    <option value="Commons">Commons</option>
+                    <option value="Room 136">Room 136</option>
+                    <option value="Room 138A">Room 138A</option>
+                    <option value="Room 138B">Room 138B</option>
+                  </select>
+                  <label for="project_location">Location</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <select id="project_session" name="project_session" required>
+                    <option value="" disabled selected>Select a session</option>
+                    <option value="1">Session 1</option>
+                    <option value="2">Session 2</option>
+                    <option value="3">Session 3</option>
+                    <option value="4">Session 4</option>
+                  </select>
+                  <label for="project_session">Project Session</label>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input type="text" id="project_language" required />
+                    <label for="project_language">Language(s)</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea
+                    id="project_description"
+                    class="materialize-textarea"
+                    data-length="500"
+                  ></textarea>
+                  <label for="project_description">Description</label>
+                </div>
+              </div>
+
+              <div class="button_wrapper">
+                <button
+                  class="submit waves-effect waves-light btn"
+                  type="submit"
+                >
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- https://materializecss.com/footer.html -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Sponsors</h5>
+            <p>hackBCA is brought to you by:</p>
+            <ul>
+              <li>BCA PPO</li>
+              <li>Tech-Pa</li>
+              <li>&lt;Corporate Sponsors&gt;</li>
+              <li>Wanna join this list? Sponsor us!</li>
+            </ul>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Contact Us</h5>
+            <ul>
+              <li>Twitter: @hackbca</li>
+              <li>Instagram: @hackbca</li>
+              <li>Facebook: @hackbca</li>
+              <li>Email: hackbca@_____</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2021 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="/js/materialize.min.js"></script>
+
+    <!-- initialize Materialize elements -->
+    <script>
+      M.AutoInit();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>HackBCA 20XX</title>
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico" />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/styles/materialize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- Shared site-wide CSS  -->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <!-- Page specific CSS -->
+    <link rel="stylesheet" href="/styles/tables.css" />
+    <link rel="stylesheet" href="/styles/event.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <img
+            class="hide-on-small-and-down"
+            src="/images/bca-logo-transparent.png"
+          />
+          <a href="/" class="brand-logo">HackBCA 20XX</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul id="desktop-nav" class="right hide-on-med-and-down">
+            <li>
+              <a href="/events.html"
+                ><i class="material-icons left">event</i>Events</a
+              >
+            </li>
+            <li>
+              <a href="/attendees.html"
+                ><i class="material-icons left">people</i>Attendees</a
+              >
+            </li>
+            <li>
+              <a href="/projects.html"
+                ><i class="material-icons left">build</i>Projects</a
+              >
+            </li>
+            <li><a href="/login.html" class="btn">Login / Register</a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul id="mobile-nav" class="sidenav">
+        <li>
+          <a href="/events.html"
+            ><i class="material-icons left">event</i>Events</a
+          >
+        </li>
+        <li>
+          <a href="/attendees.html"
+            ><i class="material-icons left">people</i>Attendees</a
+          >
+        </li>
+        <li>
+          <a href="/projects.html"
+            ><i class="material-icons left">build</i>Projects</a
+          >
+        </li>
+        <li><a href="/login.html" class="btn">Login / Register</a></li>
+      </ul>
+    </header>
+    <main>
+      <div class="container">
+        <div class="card">
+          <!-- image is optional -->
+          <div class="card-image">
+            <!-- Added div wrapper to create dark gradient -->
+            <div class="card-image-gradient">
+              <img src="/images/amireve.png" />
+            </div>
+            <span class="card-title">
+              <h1>AmiReve</h1>
+            </span>
+            <!-- USER ONLY - Initialize page with appropriate state of button -->
+            <a
+              onclick='toggleInterest(this, "{{ project_id }}")'
+              class="btn-floating btn-large halfway-fab waves-effect waves-light scale-transition scale-in blue"
+              ><i class="material-icons">star_border</i></a
+            >
+            <!-- <a onclick='toggleInterest(this, "{{ project_id }}"))'class="btn-floating btn-large halfway-fab waves-effect waves-light scale-transition scale-in yellow"><iclass="material-icons">star</i></a> -->
+          </div>
+          <div class="card-content">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th>Team Members</th>
+                  <th>Type</th>
+                  <th>Language</th>
+                  <th>Session</th>
+                  <th>Location</th>
+                  <!-- ADMIN ONLY BUTTONS -->
+                  <th>Admin Op</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Remington Kim</td>
+                  <td>Mobile</td>
+                  <td>React Native</td>
+                  <td>Session 1</td>
+                  <td>Room 138A</td>
+                  <!-- ADMIN ONLY BUTTONS -->
+                  <td nowrap>
+                    <!-- Alternatively to going to a new page, trigger a modal ??-->
+                    <a
+                      class="btn-floating waves-effect waves-light green lighten-1"
+                      href="/projectform.html"
+                      ><i class="material-icons">edit</i></a
+                    >
+                    <a
+                      class="btn-floating waves-effect waves-light red"
+                      onclick='confirmDelete("AmiReve","{{ project_id }}", "/projects.html")'
+                      ><i class="material-icons">delete</i></a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="container project-description">
+              A mobile application in which someone can activate an alarm on
+              his/her friend's phone. Prevents problems with students sleeping
+              through their classes during remote learning.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Sponsors</h5>
+            <p>hackBCA is brought to you by:</p>
+            <ul>
+              <li>BCA PPO</li>
+              <li>Tech-Pa</li>
+              <li>&lt;Corporate Sponsors&gt;</li>
+              <li>Wanna join this list? Sponsor us!</li>
+            </ul>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Contact Us</h5>
+            <ul>
+              <li>Twitter: @hackbca</li>
+              <li>Instagram: @hackbca</li>
+              <li>Facebook: @hackbca</li>
+              <li>Email: hackbca@_____</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2021 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/event_utils.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="/js/materialize.min.js"></script>
+
+    <!-- initialize Materialize elements -->
+    <script>
+      M.AutoInit();
+    </script>
+  </body>
+</html>
